@@ -21,3 +21,17 @@
 ---> Added/Modified some codes to employee_add.php
 
 ---> Done
+
+
+December 13, 2024
+
+---> Modified/Added some codes from/to the employeeLogin.php, index.php, and attendance.php (from the Admin folder)
+
+---> Fixed the time in issue using the other employee_id (database field)
+
+---> Fixed the time out issue using the other employee_id (database field)
+
+---> Included an if condition when a user is trying to use the other 
+employee_id for time in and time out
+
+---> Done

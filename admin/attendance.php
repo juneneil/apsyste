@@ -2,14 +2,50 @@
 <?php include 'includes/header.php'; ?>
 
 <?php
-// Start the session
+// Ensure the user is logged in
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    // If not logged in, redirect to login page
+    header('Location: employeeLogin.php');
+    exit();
+}
 
-// Example: Update the user’s session data
+// Example: Update the user's session data
 if (isset($_SESSION['user_id'])) {
-  $_SESSION['firstname'] = 'New First Name';  // Update the user's firstname
-  $_SESSION['lastname'] = 'New Last Name';  // Update the user's lastname
-  $_SESSION['position'] = 'New Position';  // Update the user's position
+    $_SESSION['firstname'] = 'New First Name';  // Update the user's firstname
+    $_SESSION['lastname'] = 'New Last Name';  // Update the user's lastname
+    $_SESSION['position'] = 'New Position';  // Update the user's position
+}
+
+// Handle attendance submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Check if the employee_id from the form matches the logged-in user's employee_id
+    if ($_POST['employee'] != $_SESSION['employee_id']) {
+        // If it doesn't match, return an error response
+        echo json_encode([
+            'error' => true,
+            'message' => 'You can only sign in with your own Employee ID.'
+        ]);
+        exit();
+    }
+
+    // Proceed with the time-in or time-out logic if the IDs match
+    $employee_id = $_POST['employee'];
+    $status = $_POST['status'];  // 'in' or 'out'
+
+    // Insert or update the attendance record in the database
+    $sql = "INSERT INTO attendance (employee_id, status, time_in, time_out, date) 
+            VALUES (?, ?, NOW(), NULL, CURDATE()) 
+            ON DUPLICATE KEY UPDATE status = ?, time_in = NOW()";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iss", $employee_id, $status, $status);
+    $stmt->execute();
+
+    // Return a success message
+    echo json_encode([
+        'error' => false,
+        'message' => 'Attendance recorded successfully.'
+    ]);
 }
 ?>
 

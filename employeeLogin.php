@@ -35,6 +35,7 @@ if (isset($_POST['login'])) {
             if ($password == $user['password']) {
                 // Store session data
                 $_SESSION['user_id'] = $user['id'];  // Assuming 'id' is the user's primary key
+                $_SESSION['employee_id'] = $user['employee_id'];  // Store employee_id in the session
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['firstname'] = $user['firstname'];  // Add more user data
                 $_SESSION['lastname'] = $user['lastname'];  // Add more user data
