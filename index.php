@@ -1,4 +1,23 @@
-<?php session_start(); ?>
+<?php
+// Start the session
+session_start();
+
+var_dump($_SESSION);  // Output session data
+
+// If the user is not logged in, redirect to employeeLogin.php
+if (!isset($_SESSION['user_id'])) {
+  header('Location: employeeLogin.php');  // Redirect to login page
+  exit();  // Stop further execution
+}
+
+// Example: Update the user’s session data
+if (isset($_SESSION['user_id'])) {
+  $_SESSION['firstname'] = 'New First Name';  // Update the user's firstname
+  $_SESSION['lastname'] = 'New Last Name';  // Update the user's lastname
+  $_SESSION['position'] = 'New Position';  // Update the user's position
+}
+?>
+
 <?php include 'header.php'; ?>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -27,6 +46,12 @@
         		</div>
       		</div>
     	</form>
+      <!-- Display logout button if the user is logged in -->
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <form action="employeeLogin.php" method="post">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    <?php endif; ?>
   	</div>
 		<div class="alert alert-success alert-dismissible mt20 text-center" style="display:none;">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
