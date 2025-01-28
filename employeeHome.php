@@ -2,8 +2,6 @@
 // Start the session
 session_start();
 
-//var_dump($_SESSION);  // Output session data
-
 // If the user is not logged in, redirect to employeeLogin.php
 if (!isset($_SESSION['user_id'])) {
   header('Location: employeeLogin.php');  // Redirect to login page
@@ -17,7 +15,6 @@ if (!isset($_SESSION['user_id'])) {
 //   $_SESSION['position'] = 'New Position';  // Update the user's position
 // }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -167,7 +164,7 @@ if (!isset($_SESSION['user_id'])) {
             padding: 5px 0;
             text-align: center;
             position: fixed;
-            width: 100%!important;
+            width: 100%;
             bottom: 0;
 
             background: linear-gradient(147deg, #164211, #329427, #164211);
@@ -183,7 +180,6 @@ if (!isset($_SESSION['user_id'])) {
             background: linear-gradient(147deg, #164211, #329427, #164211); /* AMENDED BY PAM: from background-color: #ffffff; */
             border: 1px solid #ddd;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 50%;
         }
 
         .section-title {
@@ -213,18 +209,13 @@ if (!isset($_SESSION['user_id'])) {
         .container {
             margin-top: 20px;
         }
-
-
-        /* ADDED BY PAM */
-
-
     </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
      <!-- AMENDED BY PAM: id = "navBar" -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navBar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navBar">
         <a class="navbar-brand" href="employeeHome.php">
             <img src="Pateros-logo-duck.png" alt="Pateros Logo"> <!-- Logo Image -->
             Pateros Municipality
@@ -266,38 +257,41 @@ if (!isset($_SESSION['user_id'])) {
             </a></li>
         </ul>
     </div>
-    
-    <!-- START CODES FROM ORIGINAL index.php -->
-     
+
     <!-- Main Content Area -->
-     <center>
-    <div class="container" id="welcomeDashboard">
+    <!-- AMENDED BY PAM: id = "welcomeDashboard" -->
+    <!-- <div class="container" id = "welcomeDashboard">
         <div class="row">
-            <!-- About Section -->
-            <div class="col-md-12 mb-4">
-                <div class="section-box p-4 bg-light rounded shadow">
-                    <?php include("newIndex.php"); ?>
-                </div>
+            <div class="col-md-9">
+                <h2>Welcome to the Pateros</h2>
+                <p>This is your municipality.</p>
             </div>
+        </div>
+    </div> -->
+
+    <!-- Main Content Area -->
+    <!-- Welcome Dashboard -->
+    <div class="col-md-12 mb-4">
+        <div class="section-box p-4 bg-light rounded shadow">
+            <h2 class="section-title">Welcome to Pateros</h2>
+            <p>Itinatag ang Pateros bilang pueblo ng espanyol noong 1815 nang humiwalay ito sa Pasig. <br><br>
+            Ito ay bahagi ng Lalawigan ng Maynila, pagkatapos ay naging bahagi ng Lalawigan ng Rizal noong 1901. <br><br>
+            Ang mga bayan ng Taguig at Muntinlupa ay pinagsama sa Pateros noong 1903.<br><br>
+            Ang bayan ng Muntinlupa ay nahiwalay sa Pateros noong taon ding iyon ngunit muling isinama noong 1905.<br><br>
+            Nabawi ng mga bayan ng Taguig at Muntinlupa ang kanilang independiyenteng katayuang munisipyo noong 1918.<br><br>
+            Ang Pateros ay naging bahagi ng Metro Manila noong 1975 at nananatiling nag-iisang munisipalidad sa kabiserang rehiyon.</p>
+        </div>
     </div>
-    </center>
-    
-    <!-- END CODES FROM ORIGINAL index.php -->
 
-
-<!-- Footer -->
-<footer>
+    <!-- Footer -->
+    <footer>
         <p>&copy; 2025 Pateros Municipality. All rights reserved.</p>
     </footer>
 
-    <!-- PAM COMMENTED THESE SCRIPTS BELOW BECAUSE THE TIME IN/OUT BACK-ENDS WILL NOT FUNCTION -->
-
     <!-- Bootstrap JS (optional) -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-    
-    <!-- PAM COMMENTED THESE SCRIPTS ABOVE BECAUSE THE TIME IN/OUT BACK-ENDS WILL NOT FUNCTION -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         // Function to toggle the sidebar
