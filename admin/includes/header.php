@@ -74,5 +74,41 @@
         height: 100%;
         border-radius: 5px;
       }
+
+      /* AMENDED BY PAM: CSS AMENDMENT FOR NAVBAR */
+      .skin-blue .main-header .navbar {
+        /* Original: background-color: #3c8dbc; */
+        background: linear-gradient(147deg, #164211, #329427, #164211);
+        animation: Gradient 5s ease infinite;
+        transition: all 0.2s ease-out;
+        font-family: sans-serif;
+      }
+
+      .skin-blue .main-header .logo {
+        /* Original: background-color: #367fa9; */
+        background: linear-gradient(147deg, #164211, #329427, #164211);
+        animation: Gradient 5s ease infinite;
+        transition: all 0.2s ease-out;
+        font-family: sans-serif;
+        color: #fff;
+        border-bottom: 0 solid transparent;
+      }
+
+      .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+        /* Original: background-color: #222d32; */
+        background: linear-gradient(147deg, #164211, #329427, #164211);
+        animation: Gradient 5s ease infinite;
+        transition: all 0.2s ease-out;
+        font-family: sans-serif;
+      }
+
+      .skin-blue .sidebar-menu>li.active>a {
+        /* Original: background-color: #3c8dbc; */
+        background: linear-gradient(147deg, #164211, #329427, #164211);
+        animation: Gradient 5s ease infinite;
+        transition: all 0.2s ease-out;
+        font-family: sans-serif;
+      }
   	</style>
 </head>
+
