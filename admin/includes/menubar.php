@@ -33,6 +33,19 @@
             <li><a href="schedule.php"><i class="fa fa-circle-o"></i> Schedules</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i>
+            <span>Add Other Users</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="other_user.php"><i class="fa fa-circle-o"></i> Add User</a></li>
+          </ul>
+        </li>
+        <li><a href="ticket.php"><i class="fa fa-file-text"></i> Ticket</a></li>
         <li><a href="deduction.php"><i class="fa fa-file-text"></i> Deductions</a></li>
         <li><a href="position.php"><i class="fa fa-suitcase"></i> Positions</a></li>
         <li class="header">PRINTABLES</li>

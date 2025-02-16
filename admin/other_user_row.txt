@@ -1,0 +1,12 @@
+<?php 
+	include 'includes/session.php';
+
+	if(isset($_POST['id'])){
+		$id = $_POST['id'];
+		$sql = "SELECT *, other_users.id as empid FROM other_users LEFT JOIN position ON position.id=other_userss.position_id LEFT JOIN schedules ON schedules.id=other_userss.schedule_id WHERE other_userss.id = '$id'";
+		$query = $conn->query($sql);
+		$row = $query->fetch_assoc();
+
+		echo json_encode($row);
+	}
+?>
